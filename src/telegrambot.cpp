@@ -233,6 +233,7 @@ void TelegramBot::sendMessage(QVariant chatId, QString text, int replyToMessageI
     params.addQueryItem("chat_id", chatId.toString());
     params.addQueryItem("text", text);
     if(flags && TelegramFlags::Markdown) params.addQueryItem("parse_mode", "Markdown");
+    else if(flags && TelegramFlags::MarkDownV2) params.addQueryItem("parse_mode", "MarkdownV2");
     else if(flags && TelegramFlags::Html) params.addQueryItem("parse_mode", "HTML");
     if(flags && TelegramFlags::DisableWebPagePreview) params.addQueryItem("disable_web_page_preview", "true");
     if(flags && TelegramFlags::DisableNotification) params.addQueryItem("disable_notification", "true");
